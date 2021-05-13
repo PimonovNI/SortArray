@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Сортування масивів</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<meta  http-equiv="Content-Type" content="text/html; charset= UTF-8" />
+	<meta name="keywords" content=" " />
+	<meta name="description" content=" " />
+	<link href="../image/iconfinder.ico" rel="shortcut icon" type="image/x-scon" />
+</head>
+<body>
+	<div id="page-wrap"> <header>
+		<a href="../index.html" id="logo" title="На головну">Алгоритми сортування масивів</a><span id="contact"><a href="../page/about.html" title="Інформація про нас"> Про нас </a></span><input type="text" class="field" placeholder="Пошук по сайту..." />
+	</header> 
+	<div class="clear"><br /></div>
+		<center>
+			<div id="menu" title="Розділи сайту">Розділи<hr /></div>
+			<div id="menuHrefs">
+				<a href="../index.html">Про сортування і алгоритми</a>
+				<a href="../page/choice.html">Сортування вибором</a>
+				<a href="../page/exchange.html">Сортування обміном</a>
+				<a href="../page/insert.html">Сортування вставками</a>
+				<a href="../page/recursion.html">Сортування рекурсією</a>
+			</div>
+		</center>
+	<div id="osnova">
+		<div class="textInOsnova">
+			<h1>Сортування обміном</h1>
+			<p>Також роздивимось ще один простий і поширений метод – це сортування обміном, а саме сортування "бульбашкою" і "гребінцем".</p>
+			<p>Що з себе представляє цей метод? Порівнюють два елементи шо знаходяться поряд і, для сортування по зростанню наприклад, якщо більший елемент лівіше, то його змінюють з правим елементом.</p><br />
+			<img src="../image/cod_ob.jpg" /><br /><br />
+			<h1>Сортування "бульбашкою"</h1>
+			<p>Тепер детальніше. Беремо масив <span class="smallCodBack"><span class="grayCod">.</span> <span class="orangeCod">array</span>[<span class="blueCod">5</span>] </span> , з елементами <span class="arraysElement"><span class="arraysElementGray">.</span><span class="arraysElement">3</span> <span class="arraysElement">64</span> <span class="arraysElement">12</span> <span class="arraysElement">4</span> <span class="arraysElement">1</span><span class="arraysElementGray">.</span></span>. І наше завдання розташувати його елементи по зростанню. Використаємо сортування "бульбашкою".</p>
+			<p>Створимо дві змінні int temp,k; де temp – змінна для обміну значень масиву, а k – параметр, який буде зменшуватись з кожною ітерацією і буде вказувати на кількість повторення циклу (початкове значення дорівнює довжині масиву).</p>
+			<p>Створюємо цикл:</p>
+			<p class="codBlock">for (int i = 1; i< array.length;i++){}</p>
+			<p>Він вказує на кількість усіх повторень, при чому він починається з одиниці, бо немає сенсу порівнювати один і той же елемент.</p>
+			<div class="content-centering"><img src="../gif/gif_2/2.gif"  class="gif" title="Сортування масиву по заданому алгоритму" /></div><br />
+			<p>Далі діло за малим: створюємо з параметром, який спочатку дорівнює нулю і менше k. У тілі циклу перевіряємо: "Чи не більше попередній елемент, ніж теперішній?". Якщо так міняймо їх місцями. Після виконнаня циклу зменшуймо k на одиницю:</p>
+			<div class="codBlock">
+				<p class="mar2">for (int j = 1;j < k;j++){</p>
+	       		<p class="mar3">if (array[j] < array[j-1]) {</p>
+	            <p class="mar4">temp=array[j-1];</p>
+	            <p class="mar4">array[j-1]=array[j];</p>
+	            <p class="mar4">array[j]=temp;</p>
+	        <p class="mar3">}</p>
+        <p class="mar2">}</p>
+	    <p class="mar2">k--;</p></div>
+	    <p>Тепер розглянемо реалізацію цього алгоритму на таких мовах програмування, як <b>Java</b> і <b>C++</b>:</p><br />
+			<h3>Java</h3>
+
+			<div class="codBlock"><div class="codBlockBorder">
+	<pre>
+
+		import java.util.Arrays;
+
+public class Main {
+
+    public static void main(String[] args) {
+	int []array = {3, 64, 12, 4, 1};
+        System.out.println(Arrays.toString(array));
+	int temp, k= array.length;
+	for (int i = 1; i< array.length;i++){
+	    for (int j = 1;j < k;j++){
+	        if (array[j] < array[j-1]) {
+	            temp=array[j-1];
+	            array[j-1]=array[j];
+	            array[j]=temp;
+	        }
+        }
+	    k--;
+    }
+        System.out.println(Arrays.toString(array));
+    }
+}
+
+
+	</pre>
+			</div>
+		</div>
+<br /><br /><br />
+		<h3>C++</h3>
+			<div class="codBlock"><div class="codBlockBorder">
+	<pre>
+		
+#include < iostream >
+ 
+using namespace std;
+ 
+int main(){
+	int mass[5]={3, 64, 12, 4, 1};
+	for(int i = 0; i < n; ++i)
+	{
+		cout << mass[i] << " ";
+	}
+	cout << endl;
+	for(int i = 1; i < n; ++i)
+	{
+		for(int r = 0; r < n-i; r++)
+		{
+			if(mass[r] < mass[r+1])
+			{
+				int temp = mass[r];
+				mass[r] = mass[r+1];
+				mass[r+1] = temp;
+			}
+		}
+	}
+	for(int i = 0; i < n; ++i)
+	{
+		cout << mass[i] << " ";
+	}
+	cout << endl;
+	return 0;
+}
+
+	</pre>
+			</div>
+		</div><br /><br /><br />
+<h1>Сортування "гребінцем"</h1>
+<p>Сортування"гребінцем" більш ефективне, ніж сортування "булбашкою". В виконанні він трохи складніше. Він представляє собою промодифіковану версію сортування "бульбашкою", тобто спочатку звіряють з меншого елементу до більшого, а потім з більшого до меншого.</p>
+<div class="content-centering"><img src="gif/gif_3/1.gif"  class="gif" title="Сортування масиву по заданому алгоритму" /></div><br />
+<p>Для виконання цього алгоритму створимо логічну змінну b, в ній буде зберігатися значення, що означає: "Чи проходили обміни?" - для вихода з циклу.</p>
+ <p>Тепер розглянемо реалізацію цього алгоритму на таких мовах програмування, як <b>Java</b> і <b>C++</b>:</p><br />
+			<h3>Java</h3>
+
+			<div class="codBlock"><div class="codBlockBorder">
+	<pre>
+
+		import java.util.Arrays;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int array[] = {3,64, 12, 4, 1};
+        System.out.println(Arrays.toString(array));
+        boolean b;
+        int temp;
+        for (int i = 0; i < array.length / 2; i++) {
+            b=false;
+
+            for (int j = i; j < array.length - i - 1; j++)
+            {
+                if (array[j] > array[j + 1])
+                {
+                    temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                    b = true;
+                }
+            }
+
+            for (int j = array.length - 2 - i; j > i; j--)
+            {
+                if (array[j - 1] > array[j])
+                {
+                    temp = array[j];
+                    array[j] = array[j - 1];
+                    array[j - 1] = temp;
+                    b = true;
+                }
+            }
+            if (!b) break;
+        }
+        System.out.println(Arrays.toString(array));
+    }
+}
+
+
+
+	</pre>
+			</div>
+		</div>
+<br /><br /><br />
+		<h3>C++</h3>
+			<div class="codBlock"><div class="codBlockBorder">
+	<pre>
+		
+void shekerSort(double *mass, int count)
+{
+  int left = 0, right = count - 1;
+  int flag = 1; 
+  while ((left < right) && flag > 0)
+  {
+    flag = 0;
+    for (int i = left; i < right; i++) 
+    {
+      if (mass[i]>mass[i + 1]) 
+      {          
+        double t = mass[i];
+        mass[i] = mass[i + 1];
+        mass[i + 1] = t;
+        flag = 1;  
+      }
+    }
+    right--; 
+    for (int i = right; i>left; i--) 
+    {
+      if (mass[i - 1]>mass[i])
+      {      
+        double t = mass[i];
+        mass[i] = mass[i - 1];
+        mass[i - 1] = t;
+        flag = 1;
+      }
+    }
+    left++;
+  }
+}
+
+	</pre>
+			</div>
+		</div><br /><br /><br /><br />
+			<p>Також пропоную ознайомитись з:</p>
+			<ul>
+				<li><a href="../index.html">Про сортування і алгоритми</a>;</li>
+				<li><a href="../page/choice.html">Сортування вибором</a>;</li>
+				<li><a href="../page/insert.html">Сортування вставками</a>;</li>
+				<li><a href="../page/recursion.html">Сортування рекурсією</a>.</li>
+			</ul>
+		</div>
+	</div>
+
+	</div>
+	<footer>
+		<span class="left" title="Усі права захищені &copy; 2020">Усі права захищені &copy; 2020</span><span class="right" title="Напишіть нам електроний лист">Зв'язатися з нами: <a href="mailto:nikitapimonov6@gmail.com">nikitapimonov6@gmail.com</a></span>
+	</footer>
+</body>
+</html>

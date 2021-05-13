@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Сортування масивів</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<meta  http-equiv="Content-Type" content="text/html; charset= UTF-8" />
+	<meta name="keywords" content=" " />
+	<meta name="description" content=" " />
+	<link href="../image/iconfinder.ico" rel="shortcut icon" type="image/x-scon" />
+</head>
+<body>
+	<div id="page-wrap"> <header>
+		<a href="../index.html" id="logo" title="На головну">Алгоритми сортування масивів</a><span id="contact"><a href="../page/about.html" title="Інформація про нас"> Про нас </a></span><input type="text" class="field" placeholder="Пошук по сайту..." />
+	</header> 
+	<div class="clear"><br /></div>
+		<center>
+			<div id="menu" title="Розділи сайту">Розділи<hr /></div>
+			<div id="menuHrefs">
+				<a href="../index.html">Про сортування і алгоритми</a>
+				<a href="../page/choice.html">Сортування вибором</a>
+				<a href="../page/exchange.html">Сортування обміном</a>
+				<a href="../page/insert.html">Сортування вставками</a>
+				<a href="../page/recursion.html">Сортування рекурсією</a>
+			</div>
+		</center>
+	<div id="osnova">
+		<div class="textInOsnova">
+			<h1>Сортування вставками</h1>
+			<p>Розглянемо наступний тип сортування даних, який називається сортування вставками. </p>
+			<p>Головна ідея методу полягає в тому, що при додаванні нового елемента в уже відсортований масив його необхідно вставляти на потрібне місце, замість того, що б ставити його в довільне, і потім заново сортувати всю послідовність.</p><br />
+			<img src="../image/cod_vst.jpg" /><br /><br />
+			<p>Розглянемо алгоритм методу сортування вставками на прикладі сортування по зростанню. Перший елемент в масиві утворює вже відсортовану послідовність. Порівнюємо другий елемент з першим. Якщо порядок між ними порушений, то перший елемент пересувається на одну позицію вправо. Тепер відсортований масив складається з двох елементів.</p>
+			<p>Далі, протягом кожної ітерації, беремо наступний елемент (третій, четвертий і т.д) і порівнюємо його по черзі з іншими елементами в уже відсортованому списку, починаючи з кінця цього списку. Якщо порядок між порівнюваними елементами порушений, то міняємо їх місцями, якщо немає, то "вставка" нового елемента закінчена, переходимо до наступного.</p>
+			<p>Сортування вставками має велику обчислювальну складність. Тому вона ефективна на невеликих наборах даних. Рекомендується використовувати цей метод на наборах розміром до десятків елементів. Сортування вставками ефективна на послідовностях з даними, які вже частково відсортовані.</p>
+			 <p>Тепер розглянемо реалізацію цього алгоритму на таких мовах програмування, як <b>Java</b> і <b>C++</b>:</p><br />
+			<h3>Java</h3>
+
+			<div class="codBlock"><div class="codBlockBorder">
+	<pre>
+
+
+
+	</pre>
+			</div>
+		</div>
+<br /><br /><br />
+		<h3>C++</h3>
+			<div class="codBlock"><div class="codBlockBorder">
+	<pre>
+		
+void InsertionSort(int n, int mass[])
+{
+    int newElement, location;
+ 
+    for (int i = 1; i < n; i++)
+    {
+        newElement = mass[i];
+        location = i - 1;
+        while(location >= 0 && mass[location] > newElement)
+        {
+            mass[location+1] = mass[location];
+            location = location - 1;
+        }
+        mass[location+1] = newElement;
+    }
+}
+
+	</pre>
+			</div>
+		</div><br /><br /><br />
+		<br />
+			<p>Також пропоную ознайомитись з:</p>
+			<ul>
+				<li><a href="../index.html">Про сортування і алгоритми</a>;</li>
+				<li><a href="../page/exchange.html">Сортування обміном</a>;</li>
+				<li><a href="../page/choice.html">Сортування вибором</a>;</li>
+				<li><a href="../page/recursion.html">Сортування рекурсією</a>.</li>
+			</ul>
+		</div>
+	</div>
+
+	</div>
+	<footer>
+		<span class="left" title="Усі права захищені &copy; 2020">Усі права захищені &copy; 2020</span><span class="right" title="Напишіть нам електроний лист">Зв'язатися з нами: <a href="mailto:nikitapimonov6@gmail.com">nikitapimonov6@gmail.com</a></span>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,306 @@
+@charset "utf-8"
+
+*{
+	margin: 0;
+	padding: 0;
+	outline: none;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	color: #333;
+	font-size: 1em;
+	font-family: "Segoe UI", sans-serif;
+	line-height: 135%;
+	background: #f6f6f6 url(../image/main.png);
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+.clear {
+	clear: both;
+}
+
+a {
+	color: #f48b8b;
+	text-decoration: none;
+	transition: all.6s ease;
+	-moz-transition: all.6s ease;
+	-webkit-transition: all.6s ease;
+	-ms-transition: all.6s ease;
+}
+
+a:hover {
+	color: #8b9ff5;
+	text-decoration: none;
+	transition: all.6s ease;
+	-moz-transition: all.6s ease;
+	-webkit-transition: all.6s ease;
+	-ms-transition: all.6s ease;
+}
+
+a:active {
+	color: #8ce4a6;
+}
+
+/* Selection Block */
+::-moz-selection {background: #f58b8b; color:#fff}
+::selection {background: #f58b8b; color:#fff}
+
+img {
+	max-width: 100%;
+	height: auto;
+	width: auto/9;
+}
+
+hr {
+	display: block;
+	border:0;
+	height: 2px;
+	border-top: 1px solid #ccc;
+	padding: 0;
+}
+
+h1{
+	text-align: center;
+}
+
+h3 {
+	text-align: center;
+	font-family: inconsolata, sans-serif;
+}
+
+em {
+	font-family: inconsolata, sans-serif;
+}
+
+pre {
+	font-size: 1.1em;
+	font-family: inconsolata, sans-serif;
+	margin-left: 25px;
+}
+
+.smallCodBack{
+	background-color: #3f3f3f;
+	color: #fff;
+	font-family: inconsolata, sans-serif;
+}
+
+.grayCod{
+	color: #808080;
+}
+
+.orangeCod{
+	color: #ffb400;
+}
+
+.purpleCod{
+	color: #cd00cd;
+}
+
+.redCod{
+	color: #ff0000;
+}
+
+.b_blueCod{
+	color: #0000ff;
+}
+
+.greenCod {
+	color: #00fa9a;
+}
+
+.yellowCod{
+	color: #ffd700;
+}
+
+.whiteCod{
+	color: #fff;
+}
+
+.blueCod{
+	color: #00ffff;
+}
+
+.arraysElement{
+	background-color: #d3d3d3;
+	color: black;
+	font-family: inconsolata, sans-serif;
+	margin-left: 5px; 
+}
+
+.arraysElementGray{
+	color: #d3d3d3;
+}
+
+.fInconsolata{
+	font-family: inconsolata, sans-serif;
+}
+
+.gif{
+	border: 10px solid white;
+    max-width: 100%;
+}
+
+.content-centering{
+    overflow: hidden;
+    padding-left: 15%;
+}
+
+.codBlock{
+	width: 100%;
+	background-color: #3f3f3f;
+	font-family: inconsolata, sans-serif;
+	color: #fff;
+}
+
+.codBlock p {
+    margin-top: -0.3em;
+    margin-bottom: 0;
+}
+
+.codBlockBorder {
+	overflow: auto;
+}
+
+.mar1 {
+	margin-left: 30px;
+}
+
+.mar2 {
+	margin-left: 60px;
+}
+
+.mar3 {
+	margin-left: 90px;
+}
+
+.mar4 {
+	margin-left: 120px;
+}
+
+#menuHrefs a {
+	padding: 5px;
+	border-radius: 5px;
+	margin-right: 10px;
+	color: #626262;
+	font-family: Comic Sans MS, sans-serif;
+	font-size: 1.2em;
+}
+
+#menuHrefs a:hover {
+	background-color: #d3d3d3;
+}
+
+header, footer {
+	width: 98%;
+	min-height: 80px;
+	float: left;
+}
+
+header {
+	border-bottom: 2px solid silver;
+	padding: 1%;
+	background-color: #e5f4ff; 
+}
+
+#logo {
+	font-size: 2em;
+	font-family: Comic Sans MS, sans-serif;
+}
+
+#contact {
+	font-size: 1.5em;
+	font-family: Comic Sans MS, sans-serif;
+	margin-left: 50px;
+}
+
+input[type=text].field{
+	border-radius: 5px;
+	border-top: 2px solid silver;
+	padding: 5px;
+	margin-left: 20px;
+	float: right;
+}
+
+input[type=text].field:focus{
+	border: 2px solid #f58b8b;
+}
+
+#menu {
+	color: #666;
+	font-family: Comic Sans MS, sans-serif;
+	font-size: 1.7em;
+}
+
+#menu hr {
+	width: 1024px;
+	max-width: 100%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+/* Основа */
+
+#osnova {
+	float: left;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	max-width: 100%;
+	min-height: 1500px auto;
+	padding-left: 10%;
+}
+
+.textInOsnova {
+	color: #626262;
+	border-radius: 5px;
+	padding-left: 10%;
+	/*border: 2px solid silver;*/
+	max-width: 80%;
+    min-width: 1080px;
+  	padding-left: 50px;
+	float: left;
+	min-height: 1500px auto;
+	box-sizing: border-box;
+	overflow: auto;
+}
+
+.textInOsnova {
+	font-size: 1.1em;
+	font-family: Comic Sans MS, sans-serif;
+	line-height: 1.8em;
+	text-indent: 1.5em;
+}
+
+/*Стили для футера*/
+
+footer {
+	border-top: 2px solid silver;
+	margin-top: 10px;
+	padding: 1%;
+	background-color: #c6f6e1;
+	padding-bottom: 2%;
+}
+
+#page-wrap:after {
+	content: "";
+	display: block;
+}
+
+footer, #page-wrap:after {height: 10px}
+
+#page-wrap {
+	min-height: 94%;
+	margin-bottom: -10px: 
+}
+

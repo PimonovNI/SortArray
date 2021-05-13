@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Сортування масивів</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<meta  http-equiv="Content-Type" content="text/html; charset= UTF-8" />
+	<meta name="keywords" content=" " />
+	<meta name="description" content=" " />
+	<link href="image/iconfinder.ico" rel="shortcut icon" type="image/x-scon" />
+</head>
+<body>
+	<div id="page-wrap"> <header>
+		<a href="index.html" id="logo" title="На головну">Алгоритми сортування масивів</a><span id="contact"><a href="page/about.html" title="Інформація про нас"> Про нас </a></span><input type="text" class="field" placeholder="Пошук по сайту..." />
+	</header> 
+	<div class="clear"><br /></div>
+		<center>
+			<div id="menu" title="Розділи сайту">Розділи<hr /></div>
+			<div id="menuHrefs">
+				<a href="#">Про сортування і алгоритми</a>
+				<a href="page/choice.html">Сортування вибором</a>
+				<a href="page/exchange.html">Сортування обміном</a>
+				<a href="page/insert.html">Сортування вставками</a>
+				<a href="page/recursion.html">Сортування рекурсією</a>
+			</div>
+		</center>
+	<div id="osnova">
+		<div class="textInOsnova">
+			<h1>Про сортування і алгоритми</h1><br />
+			<p>	При розробці програм нам часто потрібно відсортувати масив, звичайно ж є спеціальні функції, які допоможуть це зробити (наприклад у<b> Java</b> – <span class="smallCodBack"><span class="grayCod">_</span><span class="orangeCod">Arrays</span><span class="whiteCod">.sort()<span class="orangeCod">;</span></span><span class="grayCod">.</span></span> </span> ,<span class="whiteCod">_</span><b>C++</b> - <span class="smallCodBack"><span class="grayCod">_</span><span class="blueCod">std::</span><span class="whiteCod">sort();<span class="grayCod">.</span></span> </span> ). Як же це зробити без допомоги готових функцій? Існує багато алгоритмів, ми розповімо про найвідоміші і які не дуже складні у виконанні.</p><br />
+			<img src="image/main_cod.jpg" align="center" title="Алгоритми сортування масивів на мовах Java і C++" /><br /><br />
+			<p>	Для початку нагадаймо, що означає відсортувати масив:</p>
+			<p>	Сортування - це процес упорядкування наборів даних одного типу за зростанням або спаданням значення якої-небудь ознаки.</p>
+			<p>	Існує деякий масив <span class="smallCodBack"><span class="grayCod">_</span><span class="orangeCod">array</span><span class="whiteCod">[<span class="blueCod">5</span>]</span><span class="grayCod">_</span></span>, який заповнений числами <span class="arraysElement"><span class="arraysElementGray">.</span>  <span class="arraysElement">3</span><span class="arraysElement"> 64 </span> <span class="arraysElement">12 </span><span class="arraysElement"> 4 </span> <span class="arraysElement"> 1 </span></span>. В ньому усі елемент врозкид. Можна відсортувати:</p>
+			<ul>
+				<li><span class="arraysElement"><span class="arraysElementGray">.</span> 1 <span class="arraysElement"></span><span class="arraysElement"> 3 </span> <span class="arraysElement"> 4 </span><span class="arraysElement"> 12 </span> <span class="arraysElement"> 64 </span> </span> – по зростанню;</li>
+				<li><span class="arraysElement"><span class="arraysElementGray">.</span> 64 <span class="arraysElement"></span><span class="arraysElement"> 12 </span> <span class="arraysElement"> 4 </span><span class="arraysElement"> 3 </span> <span class="arraysElement"> 1 </span> </span> – по спаданню.</li>
+			</ul>
+			<p>У загальному ж випадку можна написати, якщо для масиву <span class="smallCodBack"><span class="grayCod">_</span><span class="orangeCod">array</span><span class="whiteCod">[n]</span><span class="grayCod">_</span></span>, для будь-якого k виконується нерівність:</p>
+			<ul>
+				<li><span class="smallCodBack"><span class="grayCod">_</span><span class="orangeCod">array</span><span class="whiteCod">[k]</span><span class="grayCod">_</span></span> <span class="fInconsolata"> < </span> <span class="smallCodBack"><span class="grayCod">_</span><span class="orangeCod">array</span><span class="whiteCod">[k+1]</span><span class="grayCod">_</span></span>, тоді масив відсортований за зростанням;</li>
+				<li><span class="smallCodBack"><span class="grayCod">_</span><span class="orangeCod">array</span><span class="whiteCod">[k]</span><span class="grayCod">_</span></span><span class="fInconsolata"> > </span> <span class="smallCodBack"><span class="grayCod">_</span><span class="orangeCod">array</span><span class="whiteCod">[k+1]</span><span class="grayCod">_</span></span>, тоді масив відсортований за спаданням;</li>
+				<li><span class="smallCodBack"><span class="grayCod">_</span><span class="orangeCod">array</span><span class="whiteCod">[k]</span><span class="grayCod">_</span></span> <span class="fInconsolata"> =< </span> <span class="smallCodBack"><span class="grayCod">_</span><span class="orangeCod">array</span><span class="whiteCod">[k+1]</span><span class="grayCod">_</span></span>, тоді масив відсортований за не зростанням;</li>
+				<li><span class="smallCodBack"><span class="grayCod">_</span><span class="orangeCod">array</span><span class="whiteCod">[k]</span><span class="grayCod">_</span></span><span class="fInconsolata"> => </span> <span class="smallCodBack"><span class="grayCod">_</span><span class="orangeCod">array</span><span class="whiteCod">[k+1]</span><span class="grayCod">_</span></span>, тоді масив відсортований за не спаданням.</li>
+			</ul>
+			<p><b>Прямі або прості методи сортування:</b></p>
+			<ul>
+				<li><a href="page/exchange.html">Обміном</a>;</li>
+				<li><a href="page/choice.html">Вибором</a>;</li>
+				<li><a href="page/insert.html">Вставкою</a>.</li>
+			</ul>
+			<p>Також ми розглянемо один з методів <a href="recursion.html">рекурсивного сортування</a>.</p>
+			<p><b>Властивості алгоритмів</b></p>
+			<p>Всім алгоритмам властиві деякі загальні властивості. Перерахуємо деякі з них:</p>
+			<ul>
+				<li>Зрозумілість (доступність) - всі дії, описані в алгоритмі повинні бути зрозумілі виконавцю, тобто повинні належати системі дій даного виконавця;</li>
+				<li>Визначеність (детермінованість) - кожна дія має бути чітко і однозначно визначено. "Точне припис", тобто, припис, що задає алгоритм, має виконуватися однозначно і послідовно для отримання конкретного і однозначного результату;</li>
+				<li>Кінцевість - виконання алгоритму має завершитися за кінцеве число кроків;</li>
+				<li>Результативність (збіжність) - досягнення після кінцевого числа кроків бажаного результату;</li>
+				<li>Дискретність (дискретна структура) - виконання алгоритму має складатися з окремих кроків; Алгоритм є впорядкованою кінцеве безліч кроків для отримання результату. А всяке безліч має властивість дискретності, тобто в будь-якому алгоритмі для кожного кроку (крім останнього), можна вказати наступний за ним крок;</li>
+				<li>Масовість - полягає в тому, що алгоритм служить не для вирішення якоїсь однієї задачі, а для цілого класу однотипних задач. Алгоритм - це єдиний метод, що дозволяє з будь-якого вихідного об'єкту з певного нескінченної кількості вихідних об'єктів отримати шуканий результат.</li>
+			</ul><br /><br />
+			<p>Також пропоную ознайомитись з:</p>
+			<ul>
+				<li><a href="page/choice.html">Сортування вибором</a>;</li>
+				<li><a href="page/exchange.html">Сортування обміном</a>;</li>
+				<li><a href="page/insert.html">Сортування вставками</a>;</li>
+				<li><a href="page/recursion.html">Сортування рекурсією</a>.</li>
+			</ul>
+		</div>
+	</div>
+
+	</div>
+	<footer>
+		<span class="left" title="Усі права захищені &copy; 2020">Усі права захищені &copy; 2020</span><span class="right" title="Напишіть нам електроний лист">Зв'язатися з нами: <a href="mailto:nikitapimonov6@gmail.com">nikitapimonov6@gmail.com</a></span>
+	</footer>
+</body>
+</html>

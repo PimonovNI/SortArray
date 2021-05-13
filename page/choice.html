@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Сортування масивів</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<meta  http-equiv="Content-Type" content="text/html; charset= UTF-8" />
+	<meta name="keywords" content=" " />
+	<meta name="description" content=" " />
+	<link href="../image/iconfinder.ico" rel="shortcut icon" type="image/x-scon" />
+</head>
+<body>
+	<div id="page-wrap"> <header>
+		<a href="../index.html" id="logo" title="На головну">Алгоритми сортування масивів</a><span id="contact"><a href="../page/about.html" title="Інформація про нас"> Про нас </a></span><input type="text" class="field" placeholder="Пошук по сайту..." />
+	</header> 
+	<div class="clear"><br /></div>
+		<center>
+			<div id="menu" title="Розділи сайту">Розділи<hr /></div>
+			<div id="menuHrefs">
+				<a href="../index.html">Про сортування і алгоритми</a>
+				<a href="../page/choice.html">Сортування вибором</a>
+				<a href="../page/exchange.html">Сортування обміном</a>
+				<a href="../page/insert.html">Сортування вставками</a>
+				<a href="../page/recursion.html">Сортування рекурсією</a>
+			</div>
+		</center>
+	<div id="osnova">
+		<div class="textInOsnova">
+			<h1>Сортування вибором</h1><br />
+			<p>Зараз розберемо один з найпростіших методів сортування – це сортування вибором. </p>
+			<p>Якщо говорити коротко (приклад для сортування по зростанню): цикл перебирає і знаходить найбільший (найменший) елемент і переміщує його в правий (лівий) кінець масиву. Тепер повторюємо теж саме але вже з меншою кількістю елементів, поки повність не відсортуємо масив.</p><br />
+			<img src="../image/cod_choice.jpg"  align="center" /><br /><br />
+			<p>Тепер детальніше. Беремо масив <span class="smallCodBack"><span class="grayCod">.</span> <span class="orangeCod">array</span>[<span class="blueCod">5</span>] </span> , з елементами <span class="arraysElement"><span class="arraysElementGray">.</span><span class="arraysElement">3</span> <span class="arraysElement">64</span> <span class="arraysElement">12</span> <span class="arraysElement">4</span> <span class="arraysElement">1</span><span class="arraysElementGray">.</span></span>. І наше завдання розташувати його елементи по зростанню. Використаємо сортування вибором.</p>
+			<p>Для початку створюємо дві змінні <span class="smallCodBack"><span class="grayCod">.</span> <span class="orangeCod">int</span> pos<span class="orangeCod">,</span> max<span class="orangeCod">;</span> </span> у яких будем зберігати номер найбільшого елемента і сам найбільший елемент аналогічно. Тепер створюємо цикл <em>for</em>, параметру задаємо значення  значення останнього елементу, тобто довжина масиву мінус один, Параметр повинен зменшуватись на одиницю, і дути суворо більше за нуль. В результаті отримуємо цикл:</p>
+			<div class="codBlock"><span class="orangeCod"> for</span>(<span class="orangeCod">int</span> i = array.<span class="purpleCod">leight</span> - <span class="blueCod">1</span><span class="orangeCod">;</span> i > <span class="blueCod"> 0</span><span class="orangeCod">;</span> i--){}</div>
+			<p>Для чого ж це? Параметр цього циклу буде зберігати в собі значення крайнього елементу куди треба вставити вірний елемент (тобто з кожною ітерацією параметр буде зменшуватись, бо крайній елемент вже стоїть на своєму місці).</p><br />
+			<div class="content-centering"><img src="../gif/gif_1/choice_gif.gif"  class="gif" title="Сортування масиву по заданому алгоритму" /></div><br />
+			<p>Тепер у тілі циклу присвоюємо є змінній pos значення параметру і змінній max значення елементу масиви під номером <em>pos</em>. Отже:</p>
+			<div class="codBlock">
+				<p>…{pos = i<span class="orangeCod">;</span></p>
+				<p>max=array[i]<span class="orangeCod">;</span></p>
+				<p>…}</p>
+			</div>
+			<p>Тепер нам потрібно знайти найбільший елемент в отриманому масиві. Для цього ми створимо новий цикл з параметром значення якого дорівнює нулю, збільшується і менше ніж номер крайнього елемента (в нашому випадку <em>pos</em>).</p>
+			<div class="codBlock">
+				<p>...{...</p>
+				<p><span class="orangeCod">for</span>(<span class="orangeCod">int</span> j = <span class="blueCod">0</span><span class="orangeCod">;</span> j < pos<span class="orangeCod">;</span> j++){}</p>
+				<p>…}</p>
+			</div>
+			<p>У циклі же розміщуємо умовний оператор <em>if</em>, який перевірить, чи більше значення теперішнього елемента і <em>max</em>. Якщо <span class="smallCodBack"><span class="grayCod">.</span>array[j] > max </span>, тоді <span class="smallCodBack"><span class="grayCod">.</span>pos=j<span class="orangeCod">; </span></span> і також <span class="smallCodBack"><span class="grayCod">.</span>max=array[j]<span class="orangeCod">; </span></span>.</p>
+			<p>Тепер закриваймо цикл for(int j = 0;…) і присвоюємо array[pos]=array[i]; , тобто ми присвоюємо найбільшому елементу масиву (номер якого, нагадую, <em>pos</em>) крайній елемент, замість котрого вставляємо <em>max</em>.</p>
+			<p>І в результаті отримуємо відсортований масив: <span class="arraysElement"><span class="arraysElementGray">.</span> 1 <span class="arraysElement"></span><span class="arraysElement"> 3 </span> <span class="arraysElement"> 4 </span><span class="arraysElement"> 12 </span> <span class="arraysElement"> 64 </span><span class="arraysElementGray">.</span> </span>. </p><br />
+			<p><b>Часова складність:</b></p>
+			<p>При пошуку мінімуму для довжини масиву перевіряються всі елементи, тому складність дорівнює <span class="fInconsolata"> O (n)</span>. Пошук мінімуму для кожного елемента масиву дорівнює <span class="fInconsolata"> O (n ^ 2)</span>.</p><br />
+			<p>Тепер розглянемо реалізацію цього алгоритму на таких мовах програмування, як <b>Java</b> і <b>C++</b>:</p><br />
+			<h3>Java</h3>
+			<div class="codBlock"><div class="codBlockBorder">
+	<pre>
+	
+		<span class="orangeCod">import</span> java.util.Arrays<span class="orangeCod">;</span>
+
+		<span class="orangeCod">public class</span> Main {
+   			<span class="orangeCod">public static void</span> <span class="yellowCod">main</span>(String[] args) {
+       			<span class="orangeCod">int</span>[] array ={<span class="blueCod">3</span><span class="orangeCod">,</span><span class="blueCod"> 64</span><span class="orangeCod">,</span> <span class="blueCod">12</span><span class="orangeCod">,</span> <span class="blueCod"><span class="blueCod">4</span></span><span class="orangeCod">,</span> <span class="blueCod">1</span>}<span class="orangeCod">;</span>
+            	System.<span class="purpleCod">out</span>.println(Arrays.toString(array))<span class="orangeCod">;</span>
+            		<span class="orangeCod">for</span> (<span class="orangeCod">int</span> i = array.<span class="purpleCod">length</span> -<span class="blueCod"> 1 </span><span class="orangeCod">;</span> i > <span class="blueCod">0 </span><span class="orangeCod">;</span> i--) {
+                    	<span class="orangeCod">int</span> pos = i<span class="orangeCod">;</span>
+                		<span class="orangeCod">int</span> max = array[i]<span class="orangeCod">;</span>
+                    	<span class="orangeCod">for</span> (<span class="orangeCod">int</span> j = <span class="blueCod">0</span><span class="orangeCod">;</span> j < i<span class="orangeCod">;</span> j++) {
+                        	<span class="orangeCod">if</span> (array[j] > max) {
+                            	pos = j<span class="orangeCod">;</span>
+                    	        max = array[j]<span class="orangeCod">;</span>
+                        	}
+        	            }
+            	    array[pos] = array[i]<span class="orangeCod">;</span>
+                	array[i] = max<span class="orangeCod">;</span>
+        	        }
+            	System.<span class="purpleCod">out</span>.println(Arrays.toString(array))<span class="orangeCod">;</span>
+	    	}
+		}
+
+
+	</pre>
+			</div>
+		</div>
+		<br /><br /><br />
+		<h3>C++</h3>
+			<div class="codBlock"><div class="codBlockBorder">
+	<pre>
+		<span class="greenCod">#include < iostream ></span>
+		<span class="blueCod">using namespace</span> <span class="greenCod">std</span><span class="redCod">;</span>
+
+		<span class="blueCod">int</span> main<span class="redCod">(){</span>
+ 			<span class="blueCod">const int</span> n <span class="redCod">=</span> <span class="purpleCod">5</span><span class="redCod">;</span>
+ 			<span class="blueCod">int</span> <span class="greenCod">array</span><span class="redCod">[</span> n <span class="redCod">] =</span> <span class="redCod">{</span><span class="purpleCod">3</span><span class="redCod">,</span> <span class="purpleCod">64</span><span class="redCod">,</span> <span class="purpleCod">12</span><span class="redCod">,</span> <span class="purpleCod">4</span><span class="redCod">,</span> <span class="purpleCod">1</span><span class="redCod">};</span>
+
+ 			<span class="blueCod">for</span> <span class="redCod">(</span><span class="blueCod">int</span> i <span class="redCod">=</span> <span class="purpleCod">0</span><span class="redCod">;</span> i <span class="redCod"><</span> n<span class="redCod">;</span> i<span class="redCod">++){</span>
+ 				<span class="greenCod">cout</span><span class="redCod"> <<</span> <span class="greenCod">array</span><span class="redCod">[</span> i <span class="redCod">] << </span><span class="orangeCod">'\t'</span><span class="redCod">;</span>
+ 			<span class="redCod">}</span>
+ 			<span class="greenCod">cout</span> <span class="redCod"><<</span> <span class="greenCod">endl</span><span class="redCod">;</span>
+ 
+ 			<span class="blueCod">int</span> <span class="greenCod">max</span><span class="redCod">;</span>
+ 			<span class="blueCod">int</span> pos<span class="redCod">;</span>
+ 
+ 			<span class="blueCod">for</span> <span class="redCod">(</span><span class="blueCod">int</span> i <span class="redCod">=</span> n <span class="redCod">-</span>  <span class="purpleCod">1</span><span class="redCod">;</span> i <span class="redCod">></span>  <span class="purpleCod">0</span><span class="redCod">;</span> i<span class="redCod">--){</span>
+ 				<span class="greenCod">max</span> <span class="redCod">=</span> array<span class="redCod">[</span> i <span class="redCod">];</span>
+ 				pos <span class="redCod">=</span> i<span class="redCod">;</span>
+ 				<span class="blueCod">for</span> <span class="redCod">(</span><span class="blueCod">int</span> j <span class="redCod">=</span> <span class="purpleCod">0</span><span class="redCod">;</span> j <span class="redCod"><</span> i<span class="redCod">;</span> j<span class="redCod">++)</span>
+ 				<span class="blueCod">if </span> <span class="redCod">( </span><span class="greenCod">array</span><span class="redCod">[</span> j <span class="redCod">] > </span><span class="greenCod">max</span><span class="redCod">){</span>
+    				pos<span class="redCod">=</span>j<span class="redCod">;</span>
+   					<span class="greenCod">max</span> <span class="redCod">=</span> <span class="greenCod">array</span><span class="redCod">[</span> j <span class="redCod">];</span>
+ 				<span class="redCod">}</span>
+ 				<span class="greenCod">array</span><span class="redCod">[</span>pos<span class="redCod">] =</span> <span class="greenCod">array</span><span class="redCod">[</span> i <span class="redCod">];</span>
+				<span class="greenCod">array</span><span class="redCod">[</span> i <span class="redCod">] =</span> <span class="greenCod">max</span><span class="redCod">;</span>
+ 			<span class="redCod">}</span>
+ 			
+ 			<span class="blueCod">for</span> <span class="redCod">(</span><span class="blueCod">int</span> i <span class="redCod">=</span> <span class="purpleCod">0</span><span class="redCod">;</span> i <span class="redCod"><</span> n<span class="redCod">;</span> i<span class="redCod">++){</span>
+ 				<span class="greenCod">cout</span> <span class="redCod"><<</span> <span class="greenCod">array</span><span class="redCod">[</span> i <span class="redCod">] <<</span> <span class="orangeCod">'\t'</span><span class="redCod">;</span>
+ 			<span class="redCod">}</span>
+ 			<span class="greenCod">cout</span> <span class="redCod"><<</span> <span class="greenCod">endl</span><span class="redCod">;</span>
+		<span class="redCod">}</span>
+	</pre>
+			</div>
+		</div>
+		<br /><br /><br /><br />
+			<p>Також пропоную ознайомитись з:</p>
+			<ul>
+				<li><a href="../index.html">Про сортування і алгоритми</a>;</li>
+				<li><a href="../page/exchange.html">Сортування обміном</a>;</li>
+				<li><a href="../page/insert.html">Сортування вставками</a>;</li>
+				<li><a href="../page/recursion.html">Сортування рекурсією</a>.</li>
+			</ul>
+	  </div>
+	</div>
+
+	</div>
+	<footer>
+		<span class="left" title="Усі права захищені &copy; 2020">Усі права захищені &copy; 2020</span><span class="right" title="Напишіть нам електроний лист">Зв'язатися з нами: <a href="mailto:nikitapimonov6@gmail.com">nikitapimonov6@gmail.com</a></span>
+	</footer>
+</body>
+</html>

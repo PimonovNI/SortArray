@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Сортування масивів</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<meta  http-equiv="Content-Type" content="text/html; charset= UTF-8" />
+	<meta name="keywords" content=" " />
+	<meta name="description" content=" " />
+	<link href="../image/iconfinder.ico" rel="shortcut icon" type="image/x-scon" />
+</head>
+<body>
+	<div id="page-wrap"> <header>
+		<a href="../index.html" id="logo" title="На головну">Алгоритми сортування масивів</a><span id="contact"><a href="../page/about.html" title="Інформація про нас"> Про нас </a></span><input type="text" class="field" placeholder="Пошук по сайту..." />
+	</header> 
+	<div class="clear"><br /></div>
+		<center>
+			<div id="menu" title="Розділи сайту">Розділи<hr /></div>
+			<div id="menuHrefs">
+				<a href="../index.html">Про сортування і алгоритми</a>
+				<a href="../page/choice.html">Сортування вибором</a>
+				<a href="../page/exchange.html">Сортування обміном</a>
+				<a href="../page/insert.html">Сортування вставками</a>
+				<a href="../page/recursion.html">Сортування рекурсією</a>
+			</div>
+		</center>
+	<div id="osnova">
+		<div class="textInOsnova">
+			<h1>Сортування рекурсією</h1>
+			<p>Швидке сортування є вдосконаленим метод сортування, заснований на принципі обміну. Бульбашкова сортування є найбільш неефективною з усіх алгоритмів прямої сортування. Однак вдосконалений алгоритм є найкращим з відомих методом сортування масивів. Він має настільки блискучими характеристиками, що його винахідник Ч. Хоар назвав його швидким сортуванням.</p><br />
+			<img src="../image/cod_rec.jpg" /><br /><br />
+			<p>Для досягнення найбільшої ефективності бажано проводити обмін елементів на великих відстанях. У масиві вибирається певний елемент, званий що дозволяє. Потім він поміщається в те місце масиву, де йому належить бути після упорядкування всіх елементів. В процесі відшукання відповідного місця для дозволяє елемента виробляються перестановки елементів так, що зліва від них знаходяться елементи, менші дозволяє, і справа - великі (передбачається, що масив сортується за зростанням).</p>
+			<p>Тим самим масив розбивається на дві частини:</p>
+			<ul>
+				<li>Не відсортовані елементи зліва від дозволяє елемента;</li>
+				<li>Не відсортовані елементи праворуч від дозволяє елемента.</li>
+			</ul>
+			<p>Щоб впорядкувати ці два менших подмассіва, алгоритм рекурсивно викликає сам себе.</p>
+			<p>Якщо потрібно сортувати більше одного елемента, то потрібно:</p>
+			<ul>
+				<li>вибрати в масиві дозволяє елемент;</li>
+				<li>змінити таким чином масив, поміщаючи елемент на його остаточне місце;</li>
+				<li>впорядкувати рекурсивно елементи зліва від дозволяючого;</li>
+				<li>впорядкувати рекурсивно елементи праворуч від дозволяючого.</li>
+			</ul>
+			<p>Ключовим елементом швидкого сортування є алгоритм переупорядковування.</p>
+			<p>Тепер детальніше. Беремо масив <span class="smallCodBack"><span class="grayCod">.</span> <span class="orangeCod">array</span>[<span class="blueCod">5</span>] </span> , з елементами <span class="arraysElement"><span class="arraysElementGray">.</span><span class="arraysElement">3</span> <span class="arraysElement">64</span> <span class="arraysElement">12</span> <span class="arraysElement">4</span> <span class="arraysElement">1</span><span class="arraysElementGray">.</span></span>. І наше завдання розташувати його елементи по зростанню. Використаємо рекурсивний метод сортування.</p>
+			<p>Для реалізації алгоритму переупорядковування використовуємо покажчик left на крайній лівий елемент масиву. Покажчик рухається вправо, поки елементи, на які він показує, залишаються менше дозволяє. Покажчик right поставимо на крайній правий елемент масиву, і він рухається вліво, поки елементи, на які він показує, залишаються більше дозволяє.</p>
+			<p>Нехай крайній лівий елемент - дозволяє pivot. Встановимо покажчик left на наступний за ним елемент; right - на останній. Алгоритм повинен визначити правильне положення елемента 3 і по ходу справи поміняти місцями неправильно розташовані елементи.</p>
+			<div class="content-centering"><img src="../gif/rec/1.png" /></div>
+			<p>Рух покажчиків зупиняється, як тільки зустрічаються елементи, порядок розташування яких щодо дозволить елемента неправильний.</p>
+			<p>Покажчик left переміщається до тих пір, поки не покаже елемент більше 3; right рухається, поки не покаже елемент менше 3.</p>
+			<div class="content-centering"><img src="../gif/rec/2.png" /></div>
+			<p>Ці елементи міняються місцями і рух покажчиків поновлюється.</p>
+			<div class="content-centering"><img src="../gif/rec/3.png" /></div>
+			<p>Процес триває до тих пір, поки right не опиниться зліва від left.</p>
+			<div class="content-centering"><img src="../gif/rec/4.png" /></div>
+			<p>Тим самим буде визначено правильне місце дозволяє елемента.</p>
+			<p>Здійснюється перестановка дозволяє елемента з елементом, на який вказує right.</p>
+			<div class="content-centering"><img src="../gif/rec/5.png" /></div>
+			<p>Дозволяє елемент знаходиться в потрібному місці: елементи зліва від нього мають менші значення; праворуч - великі. Алгоритм рекурсивно викликається для сортування подмассивов зліва від дозволяючого і праворуч від нього.</p>
+			 <p>Тепер розглянемо реалізацію цього алгоритму на таких мовах програмування, як <b>Java</b> і <b>C++</b>:</p><br />
+			<h3>Java</h3>
+
+			<div class="codBlock"><div class="codBlockBorder">
+	<pre>
+
+package com.company;
+
+import java.util.Arrays;
+
+public class Main {
+    static int partition(int[] array, int begin, int end) {
+        int pivot = end;
+
+        int counter = begin;
+        for (int i = begin; i < end; i++) {
+            if (array[i] < array[pivot]) {
+                int temp = array[counter];
+                array[counter] = array[i];
+                array[i] = temp;
+                counter++;
+            }
+        }
+        int temp = array[pivot];
+        array[pivot] = array[counter];
+        array[counter] = temp;
+
+        return counter;
+    }
+
+    public static void quickSort(int[] array, int begin, int end) {
+        if (end <= begin) return;
+        int pivot = partition(array, begin, end);
+        quickSort(array, begin, pivot-1);
+        quickSort(array, pivot+1, end);
+    }
+
+    public static void main(String[] args) {
+        int[] array ={3, 64, 12, 4, 1};
+            System.out.println(Arrays.toString(array));
+            for (int i = 1; i < array.length; i++) {
+                int current = array[i];
+                int j = i - 1;
+                    while(j >= 0 && current < array[j]) {
+                        array[j+1] = array[j];
+                        j--;
+                     }
+            array[j+1] = current;
+        }
+        quickSort(array,0,4);
+            System.out.println(Arrays.toString(array));
+    }
+}
+
+	</pre>
+			</div>
+		</div>
+<br /><br /><br />
+		<h3>C++</h3>
+			<div class="codBlock"><div class="codBlockBorder">
+	<pre>
+		
+void quickSort(int *numbers, int left, int right)
+{
+  int pivot;
+  int l_hold = left;
+  int r_hold = right;
+  pivot = numbers[left];
+  while (left < right)
+  {
+    while ((numbers[right] >= pivot) && (left < right))
+      right--; 
+    if (left != right) 
+    {
+      numbers[left] = numbers[right]; 
+      left++; 
+    }
+    while ((numbers[left] <= pivot) && (left < right))
+      left++; 
+    if (left != right) 
+      right--;
+    }
+  }
+  numbers[left] = pivot;
+  pivot = left;
+  left = l_hold;
+  right = r_hold;
+  if (left < pivot)
+    quickSort(numbers, left, pivot - 1);
+  if (right > pivot)
+    quickSort(numbers, pivot + 1, right);
+}
+
+	</pre>
+			</div>
+		</div><br /><br /><br /><br />
+			<p>Також пропоную ознайомитись з:</p>
+			<ul>
+				<li><a href="../index.html">Про сортування і алгоритми</a>;</li>
+				<li><a href="../page/choice.html">Сортування вибором</a>;</li>
+				<li><a href="../page/insert.html">Сортування вставками</a>;</li>
+				<li><a href="../page/exchange.html">Сортування обміном</a>.</li>
+			</ul>
+
+
+		</div>
+	</div>
+
+	</div>
+	<footer>
+		<span class="left" title="Усі права захищені &copy; 2020">Усі права захищені &copy; 2020</span><span class="right" title="Напишіть нам електроний лист">Зв'язатися з нами: <a href="mailto:nikitapimonov6@gmail.com">nikitapimonov6@gmail.com</a></span>
+	</footer>
+</body>
+</html>

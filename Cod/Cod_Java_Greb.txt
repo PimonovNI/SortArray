@@ -1,0 +1,42 @@
+package com.company;
+
+import java.util.Arrays;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int a[] ={4, 12, 64, 3, 1};
+        String s = Arrays.toString(a);
+        System.out.println(s);
+        boolean b;
+        int x;
+        for (int i = 0; i < a.length / 2; i++) {
+            b=false;
+
+            for (int j = i; j < a.length - i - 1; j++)
+            {
+                if (a[j] > a[j + 1])
+                {
+                    x = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = x;
+                    b = true;
+                }
+            }
+
+            for (int j = a.length - 2 - i; j > i; j--)
+            {
+                if (a[j - 1] > a[j])
+                {
+                    x = a[j];
+                    a[j] = a[j - 1];
+                    a[j - 1] = x;
+                    b = true;
+                }
+            }
+            if (!b) break;
+        }
+        s = Arrays.toString(a);
+        System.out.println(s);
+    }
+}
